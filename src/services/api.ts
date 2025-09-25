@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { Game } from '../types';
 
-// URL base de tu API en Vercel (cambiar por tu URL real)
-const API_BASE_URL = 'https://tu-api.vercel.app/api';
+// URL base de tu API en Vercel
+const API_BASE_URL = 'https://catalogo-l3jjglgu5-kinggimer44s-projects.vercel.app/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

@@ -113,3 +113,5 @@ npm run dev
 ```
 
 La API estará disponible en `http://localhost:3000/api`
+
+eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9eyJhIjoicnciLCJpYXQiOjE3NTg4MjM4MzQsImlkIjoiMGQ5MWUyNzMtNjZiMy00NzgxLWI0NzQtNGZjMGYwMzljZjU0IiwicmlkIjoiYmRlOTNhY2UtMDYxZi00MTE3LTg0MWEtNWZhMzBmZjk3ZmQ2In0.nbo6M8dGvewXvamvQSKPTot85LLz1TGBqnYG0_SS7bCgMufyT9mLqUjNDpOkd4KfLglvKm8JlXbFdMUqf03PCg
