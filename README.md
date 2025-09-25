@@ -1,97 +1,172 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Catálogo de Videojuegos - React Native App
 
-# Getting Started
+Una aplicación móvil completa de catálogo de videojuegos construida con React Native, que incluye autenticación, navegación, carrito de compras y una API backend desplegada en Vercel con base de datos Turso.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🎮 Características
 
-## Step 1: Start Metro
+- **Autenticación**: Login y registro de usuarios
+- **Catálogo**: Visualización de videojuegos con imágenes y detalles
+- **Búsqueda y Filtros**: Buscar por nombre, filtrar por género y ordenar por precio/calificación/alfabético
+- **Detalles del Juego**: Pantalla completa con descripción, precio, plataformas y calificación
+- **Carrito de Compras**: Agregar/quitar juegos, gestionar cantidades
+- **Navegación**: Stack y Tab navigation con React Navigation
+- **API Backend**: API REST desplegada en Vercel con base de datos Turso
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📱 Pantallas
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+1. **Login/Registro**: Autenticación de usuarios
+2. **Catálogo**: Lista de juegos con búsqueda y filtros
+3. **Detalle del Juego**: Información completa del videojuego
+4. **Carrito**: Gestión de compras
+5. **Perfil**: Información del usuario (próximamente)
 
-```sh
-# Using npm
-npm start
+## 🛠️ Tecnologías Utilizadas
 
-# OR using Yarn
-yarn start
+### Frontend (React Native)
+- React Native 0.81.4
+- TypeScript
+- React Navigation 6
+- React Context API
+- React Native Linear Gradient
+- React Native Vector Icons
+
+### Backend (API)
+- Vercel (Serverless Functions)
+- Turso (SQLite Database)
+- TypeScript
+- CORS habilitado
+
+## 🚀 Instalación y Configuración
+
+### Prerrequisitos
+
+- Node.js >= 20
+- React Native CLI
+- Android Studio (para Android)
+- Xcode (para iOS)
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone <tu-repositorio>
+cd catalogo
 ```
 
-## Step 2: Build and run your app
+### 2. Instalar Dependencias
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+```bash
+npm install
+```
 
-### Android
+### 3. Configurar la API
 
-```sh
-# Using npm
+Navega a la carpeta `api` y sigue las instrucciones del README de la API:
+
+```bash
+cd api
+npm install
+```
+
+Configura Turso y despliega en Vercel (ver `api/README.md` para detalles completos).
+
+### 4. Actualizar URL de la API
+
+En `src/services/api.ts`, actualiza la URL base con tu URL de Vercel:
+
+```typescript
+const API_BASE_URL = 'https://tu-api.vercel.app/api';
+```
+
+### 5. Ejecutar la Aplicación
+
+#### Para Android
+```bash
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+#### Para iOS
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📁 Estructura del Proyecto
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```
+catalogo/
+├── src/
+│   ├── components/          # Componentes reutilizables
+│   │   ├── common/         # Botones, inputs, etc.
+│   │   └── GameCard.tsx    # Tarjeta de juego
+│   ├── context/            # Context API
+│   │   ├── AuthContext.tsx # Autenticación
+│   │   └── CartContext.tsx # Carrito de compras
+│   ├── navigation/         # Configuración de navegación
+│   ├── screens/            # Pantallas de la app
+│   │   ├── auth/          # Login y registro
+│   │   └── main/          # Pantallas principales
+│   ├── services/          # API y servicios
+│   ├── styles/            # Colores y estilos
+│   └── types/             # Tipos de TypeScript
+├── api/                   # Backend API
+│   ├── api/              # Endpoints de Vercel
+│   ├── lib/              # Configuración de DB
+│   └── vercel.json       # Configuración de Vercel
+└── android/              # Código nativo Android
+```
 
-## Step 3: Modify your app
+## 🎨 Diseño y UI
 
-Now that you have successfully run the app, let's make changes!
+La aplicación sigue el diseño mostrado en las imágenes de referencia con:
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+- **Tema Oscuro**: Colores azul oscuro y negro
+- **Navegación por Pestañas**: Catálogo, Carrito, Perfil
+- **Cards de Juegos**: Diseño atractivo con imágenes y información
+- **Botones Verdes**: Para acciones principales
+- **Interfaz Intuitiva**: Fácil navegación y uso
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## 🔧 Configuración de la API
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Variables de Entorno (Vercel)
 
-## Congratulations! :tada:
+```bash
+TURSO_DATABASE_URL=libsql://your-database.turso.io
+TURSO_AUTH_TOKEN=your-auth-token
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+### Endpoints Disponibles
 
-### Now what?
+- `GET /api/games` - Obtener juegos
+- `GET /api/games/[id]` - Obtener juego específico
+- `POST /api/auth/login` - Iniciar sesión
+- `POST /api/auth/register` - Registrar usuario
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 🚀 Despliegue
 
-# Troubleshooting
+### API (Vercel)
+1. Configura Turso database
+2. Despliega con `vercel --prod`
+3. Configura variables de entorno
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### App Móvil
+1. Para Android: Genera APK con `cd android && ./gradlew assembleRelease`
+2. Para iOS: Usa Xcode para generar IPA
 
-# Learn More
+## 🤝 Contribución
 
-To learn more about React Native, take a look at the following resources:
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
+
+## 📞 Contacto
+
+Si tienes preguntas o sugerencias, no dudes en contactarme.
+
+---
+
+¡Disfruta explorando el catálogo de videojuegos! 🎮
